@@ -38,9 +38,10 @@
                       <select name="attendance" value="{{ old('attendance') }}" class="form-control form-control-alt">
                         <option selected disabled> Select Attendance</option>
                         @foreach ($attendances as $attendance)
-                        <option value="{{ $attendance->attendance_name }}">{{ $attendance->attendance_name }}</option>
-                            <input type="hidden" name="attendance_code" value="{{ $attendance->attendance_code }}">
+                              <option value="{{ $attendance->attendance_name }}">{{ $attendance->attendance_name }}</option>
+
                         @endforeach
+                          <input type="hidden" name="attendance_code" value="{{ $attendance->attendance_code }}">
                       </select>
                     </div>
                     <div class="col-12 col-xl-12">

@@ -1,6 +1,4 @@
-@extends('layouts.backend')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="bg-body-light">
     <div class="content content-full">
@@ -36,7 +34,7 @@
             <div class="col-12">
           <table class="table table-borderless table-striped table-vcenter js-dataTable-responsive">
             <span class="d-flex justify-content-end">
-                <a class="btn btn-alt-info btn-sm" href="{{ route('courses.addClasses') }}">Create</a>
+                <a class="btn btn-alt-info btn-sm" href="<?php echo e(route('courses.addClasses')); ?>">Create</a>
             </span><br>
             <thead>
               <tr>
@@ -44,23 +42,24 @@
                 <th>Attendance</th>
                 <th style="text-transform: uppercase">Course</th>
                 <th colspan="3" class="text-center" >Action</th>
-                {{-- <th tyle="text-transform: uppercase">Attendanc Mode</th> --}}
+                
               </tr>
             </thead>
-            <tbody>@foreach ($data as $class)
+            <tbody><?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
 
-                <td class="fw-semibold fs-sm text-uppercase">{{ $class->name }}</td>
-                <td class="fw-semibold fs-sm">{{ $class->attendance_id }}</td>
-                <td style="text-transform: uppercase"class="fw-semibold fs-sm">{{ $class->course_id }}</td>
-                <td> <a class="btn btn-sm btn-alt-info" href="{{ route('courses.editClasses', $class->id) }}">edit</a> </td>
-                <td> <a class="btn btn-sm btn-alt-danger" href="{{ route('courses.destroyClasses', $class->id) }}">delete</a> </td>
+                <td class="fw-semibold fs-sm text-uppercase"><?php echo e($class->name); ?></td>
+                <td class="fw-semibold fs-sm"><?php echo e($class->attendance_id); ?></td>
+                <td style="text-transform: uppercase"class="fw-semibold fs-sm"><?php echo e($class->course_id); ?></td>
+                <td> <a class="btn btn-sm btn-alt-info" href="<?php echo e(route('courses.editClasses', $class->id)); ?>">edit</a> </td>
+                <td> <a class="btn btn-sm btn-alt-danger" href="<?php echo e(route('courses.destroyClasses', $class->id)); ?>">delete</a> </td>
               </tr>
-              @endforeach
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             </tbody>
           </table>
-          {{ $data->links('pagination::bootstrap-5') }}
+          <?php echo e($data->links('pagination::bootstrap-5')); ?>
+
             </div>
         </div>
       </div>
@@ -69,4 +68,6 @@
     <!-- END Page Content -->
 </main>
   <!-- END Main Container -->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.backend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Dev Kei\Desktop\TUMAPP\Modules/Courses\Resources/views/class/showClasses.blade.php ENDPATH**/ ?>

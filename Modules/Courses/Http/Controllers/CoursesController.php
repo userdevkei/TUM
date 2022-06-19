@@ -362,23 +362,6 @@ class CoursesController extends Controller
           'subject4'                  =>  'required'
       ]);
 
-//        if($request->level == 1){
-//            return '500';
-//            $courses->fee  = '500';
-//        }
-//        if($request->level == 2){
-//            return '500';
-//            $courses->fee  = '500';
-//        }
-//        if($request->level == 3){
-//            return '1000';
-//            $courses->fee  = '1000';
-//        }
-//        if($request->level >= 4){
-//            return '1500';
-//            $courses->fee  = '1500';
-//        }
-
         $courses                      =    new Course;
         $courses->school_id           =    $request->input('school');
         $courses->department_id       =    $request->input('department');
@@ -418,8 +401,7 @@ class CoursesController extends Controller
     public function editCourse($id){
         $schools       =  School::all();
         $departments   =  Department::all();
-
-
+        $courses       =  Courses::all();
         $data    =   Course::find($id);
         return view('courses::course.editCourse')->with([
             'data'          =>    $data,
@@ -430,7 +412,6 @@ class CoursesController extends Controller
     }
 
     public function updateCourse(Request $request, $id){
-
 
         $data                      =    Course::find($id);
         $data->course_name         =    $request->input('course_name');
@@ -456,6 +437,11 @@ class CoursesController extends Controller
     }
     public function offer(){
         $course_id = AvailableCourse::select('course_id')->get();
+
+        if (count($course_id) == 0){
+
+            $availables = [];
+        }
         foreach ($course_id as $course){
 
             $availables[] = Courses::where('id', $course->course_id)->get();
@@ -495,12 +481,14 @@ class CoursesController extends Controller
             'course'     =>  'required',
 
         ]);
-
+        
         $intake = AvailableCourse::where('course_id', $request->course_id)->select('intake_id')->get();
 
         $class         =    new Classes;
         $class->attendance_id  =  $request->input('attendance');
         $class->course_id      =  $request->input('course');
+        $class->intake_from    =  $request->intake_from;
+        $class->attendance_code = $request->attendance_code;
         $class->name           =  $request->course_code."/".$request->intake_from."/".$request->attendance_code;
         $class->save();
 
@@ -514,8 +502,11 @@ class CoursesController extends Controller
     }
     public function editClasses($id){
 
-        $attendances  = Attendance::all();
         $data    =   Classes::find($id);
+
+//        return $data;
+
+        $attendances  = Attendance::all();
         $courses      =      Course::all();
         $data         =      Classes::find($id);
         $intakes      =      Intake::where('status',1)->get();
@@ -534,7 +525,7 @@ class CoursesController extends Controller
             'course_code' => 'required|string'
         ]);
 
-//        return $request->all();
+        return $request->all();
 
         $data         =   Classes::find($id);
         $data->attendance_id  =  $request->input('attendance');

@@ -25,9 +25,8 @@ return new class extends Migration
             $table->string('subject4');
             $table->string('department_id');
             $table->string('course_code')->unique();
-            $table->integer('course_duration');
+            $table->string('course_duration');
             $table->longText('course_requirements');
-            $table->string('attendance_id');
             $table->timestamps();
             $table->softDeletes();
         });

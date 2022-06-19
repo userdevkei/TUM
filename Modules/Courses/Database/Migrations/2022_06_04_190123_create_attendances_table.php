@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('attendance_name')->unique();
             $table->string('attendance_code');
-            $table->string('intake_id');
             $table->timestamps();
             $table->softDeletes();
         });

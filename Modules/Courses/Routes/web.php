@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('courses')->group(function() {
+Route::prefix('courses')->middleware(['admin'])->group(function() {
 
     Route::get('/search', 'CoursesController@search')->name('courses.search');
     Route::get('/autocomplete', 'CoursesController@autocomplete')->name('courses.autocomplete');
@@ -19,10 +19,10 @@ Route::prefix('courses')->group(function() {
     Route::get('/offer', 'CoursesController@offer')->name('courses.offer');
     Route::get('/profile', 'CoursesController@profile')->name('courses.profile');
     Route::get('/review', 'CoursesController@review')->name('courses.review');
-    
+
     Route::get('/destroyCoursesAvailable/{id}', 'CoursesController@destroyCoursesAvailable')->name('courses.destroyCoursesAvailable');
 
-    
+
     Route::get('/', 'CoursesController@index')->name('courses.index');
     Route::get('approveIndex', 'CoursesController@approveIndex')->name('courses.approveIndex');
     Route::get('/addIntake', 'CoursesController@addIntake')->name('courses.addIntake');

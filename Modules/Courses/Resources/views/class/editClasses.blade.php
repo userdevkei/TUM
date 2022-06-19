@@ -25,8 +25,8 @@
                     @csrf
                     @method('PUT')
                     <div class="col-12 col-xl-12">
-                      <select name="intake_from" id="intake_from" class="form-control form-control-alt">
-                        <option selected disabled> Select Intake </option>
+                      <select name="intake_from" id="intake_from" class="form-control form-control-alt" required>
+                        <option selected value="{{ $data->intake_from }}"> {{ $data->intake_from }} </option>
                         @foreach ($intakes as $intake)
                           <option value="{{ $intake->intake_from }}">{{ Carbon\Carbon::parse($intake->intake_from)->format('M-Y') }}</option>
                         @endforeach
@@ -35,18 +35,21 @@
 
                     <div class="col-12 col-xl-12">
                       <select name="attendance" id="attendance"class="form-control form-control-alt text-uppercase">
-                        <option  selected value="{{ $data->attendance_id }}">{{ $data->attendance_id }}</option>
+
+                        <option selected value="{{ $data->attendance_id }}">{{ $data->attendance_id }} </option>
 
                         @foreach ($attendances as $attendance)
-
-                              <input type="hidden" name="attendance_code" value="{{ $attendance->attendance_code }}">
+                              <option value="{{ $attendance->attendance_name }}">{{ $attendance->attendance_name }}</option>
                           @endforeach
+                          <input type="hidden" name="attendance_code" value="{{ $attendance->attendance_code }}">
                       </select>
                     </div>
 
                     <div class="col-12 col-xl-12">
-                      <select name="course" value="{{ $data->course }}"class="form-control form-control-alt">
+                      <select name="course" class="form-control form-control-alt" required>
+                          <option value="{{ $data->course_id }}" selected>{{ $data->course_id }}</option>
                           @foreach ($courses as $course)
+
                           <option value="{{ $course->course_name }}">{{ $course->course_name }}</option>
                         @endforeach
                               <input type="hidden" name="course_code" value="{{ $course->course_code }}">
