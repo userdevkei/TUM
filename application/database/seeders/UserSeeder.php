@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $users = [
             ['name' => 'Super admin', 'username' => 'superadmin'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 1,],
             ['name' => 'COD', 'username' => 'cod'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 2,],
-            ['name' => 'Finance', 'username' => 'finance'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 3,],
+            ['name' => 'Finance', 'username' => 'applications'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 3,],
             ['name' => 'Dean', 'username' => 'dean'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 4,],
             ['name' => 'Accommodation', 'username' => 'accommodation'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 5,],
             ['name' => 'Student', 'username' => 'student'.'@gmail.com', 'password' => Hash::make('1234'), 'role_id' => 6,],

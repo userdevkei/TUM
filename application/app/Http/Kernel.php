@@ -6,6 +6,7 @@ use App\Http\Middleware\Admin\Admin;
 use App\Http\Middleware\Applicant\Applicant;
 use App\Http\Middleware\Applicant\Isverified;
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\Finance\Finance;
 use App\Http\Middleware\Student\Student;
 use App\Http\Middleware\COD\COD;
 use App\Http\Middleware\DEAN\DEAN;
@@ -82,6 +83,7 @@ class Kernel extends HttpKernel
         'authenticate' => Authenticate::class,
         'user_updated' => Updatedprofile::class,
         'is_verified' => Isverified::class,
+        'finance' => Finance::class,
     ];
 
 }

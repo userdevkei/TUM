@@ -22,15 +22,10 @@ class UserController extends Controller
 {
     public function login(Request $request){
 
-        // return $request->all();
-
         $logins = $request->only('username', 'password');
 
-        // $logins = DB::table('users')->get();
-        // return $logins;
-
         if (Auth::guard('user')->attempt($logins)){
-            // return 'checked';
+
             $name = Auth::guard('user')->user()->name;
             if (Auth::guard('user')->user()->role_id === 6){
                 return redirect()->intended('/dashboard')->with('success', 'Welcome'." ".$name." ".'to'." ".config('app.name').".");
@@ -38,7 +33,6 @@ class UserController extends Controller
 
             if (Auth::guard('user')->user()->role_id === 1){
 
-                // return 'admin';
                 return redirect()->intended('/dashboard')->with('success', 'Welcome'." ".$name." ".'to'." ".config('app.name').".");
             }
 
@@ -94,6 +88,12 @@ class UserController extends Controller
                abort(403);
            } else{
                return view('approval::dean.index');
+           }
+       }elseif (Auth::guard('user')->user()->role_id === 3){
+           if (!Auth::guard('user')->check()){
+               abort(403);
+           } else{
+               return view('applications::finance.index');
            }
        }else{
            return redirect('application/applicant');

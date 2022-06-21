@@ -403,7 +403,7 @@ class ApplicationController extends Controller
             'sponsorcounty' => 'string|required',
             'sponsortown' => 'string|required',
             'receipt' => 'string|required|unique:applications',
-            'receipt_file' => 'mimes:image,pdf|required|max:2048'
+            'receipt_file' => 'mimes:jpeg,jpg,png,pdf|required|max:2048'
         ]);
 
 //        return $request->all();

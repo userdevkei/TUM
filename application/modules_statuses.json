@@ -1,7 +1,8 @@
 {
     "Application": true,
     "Courses": true,
-    "Approval": true
-
-    
+    "Approval": true,
+    "Finance": true,
+    "COD": true,
+    "Dean": true
 }

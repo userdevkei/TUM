@@ -53,6 +53,11 @@ class Applicant extends Authenticatable
 
         return $this->hasOne('\Modules\Application\Entities\VerifyUser', 'id');
     }
+
+    public function application(){
+
+       return $this->hasMany(Application::class, 'id');
+    }
     protected static function newFactory()
     {
         return \Modules\Application\Database\factories\ApplicantFactory::new();

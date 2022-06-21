@@ -470,7 +470,7 @@ class CoursesController extends Controller
         $attendances  =  Attendance::all();
         $courses      =  Course::all();
         $intakes      =  Intake::where('status', 1)->get();
-        
+
 
         return view('courses::class.addClasses')->with(['attendances'  =>  $attendances, 'courses' =>  $courses, 'intakes' => $intakes]);
     }
@@ -482,7 +482,7 @@ class CoursesController extends Controller
             'course'     =>  'required',
 
         ]);
-        
+
         $intake = AvailableCourse::where('course_id', $request->course_id)->select('intake_id')->get();
 
         $class         =    new Classes;

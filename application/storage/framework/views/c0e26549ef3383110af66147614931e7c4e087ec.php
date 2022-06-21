@@ -98,7 +98,7 @@
   <!-- END Page Container -->
 
   <!-- OneUI Core JS -->
-  <script src="<?php echo e(mix('js/oneui.app.js')); ?>"></script>
+  <script src="<?php echo e(url('js/oneui.app.js')); ?>"></script>
 
   <!-- Laravel Scaffolding JS -->
   <!-- <script src="<?php echo e(mix('/js/laravel.app.js')); ?>"></script> -->
