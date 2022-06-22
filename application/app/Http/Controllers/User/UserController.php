@@ -22,6 +22,8 @@ class UserController extends Controller
 {
     public function login(Request $request){
 
+        return $request->all();
+
         $logins = $request->only('username', 'password');
 
         if (Auth::guard('user')->attempt($logins)){
