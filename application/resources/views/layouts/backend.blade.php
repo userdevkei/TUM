@@ -82,14 +82,8 @@
 
               </a>
             </li>
-{{--            <li class="nav-main-item">--}}
-{{--              <i class="nav-main-link-icon"></i>--}}
-{{--              <a class="nav-main-link {{ request()->is('approve/approveIndex') ? ' active' : '' }}" href="{{ route('courses.approveIndex') }}">--}}
-{{--                <i class="nav-main-link-icon si si-user"></i>--}}
-{{--                <span class="nav-main-link-name">Review</span>--}}
+           
 
-{{--              </a>--}}
-{{--            </li>--}}
             <li class="nav-main-item{{ request()->is('intakes/*') ? ' open' : '' }}">
               <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                 <i class="nav-main-link-icon si si-graduation"></i>
@@ -136,6 +130,36 @@
                             <span class="nav-main-link-name">Classes</span>
                           </a>
                         </li>
+              </ul>
+            </li>
+
+            <li class="nav-main-item{{ request()->is('intakes/*') ? ' open' : '' }}">
+              <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                <i class="nav-main-link-icon si si-user"></i>
+                <span class="nav-main-link-name">Applications</span>
+              </a>
+              <ul class="nav-main-submenu">
+                <li class="nav-main-item">
+                  <a class="nav-main-link{{ request()->is('applications') ? ' active' : '' }}" href="{{ route('courses.applications') }}">
+                    <i class="nav-main-link-icon si si-user"></i>
+                    <span class="nav-main-link-name">
+                       Applications
+                    </span>
+    
+                  </a>
+                </li>
+
+                <li class="nav-main-item">
+                  <a class="nav-main-link{{ request()->is('archived') ? ' active' : '' }}" href="{{ route('courses.archived') }}">
+                    <i class="nav-main-link-icon si si-user"></i>
+                    <span class="nav-main-link-name">
+                       Archived
+                    </span>
+    
+                  </a>
+                </li>
+
+                    
               </ul>
             </li>
           </ul>

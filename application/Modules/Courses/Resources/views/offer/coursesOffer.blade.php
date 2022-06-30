@@ -27,28 +27,22 @@
                 <div class="col-lg-12">
             <table class="table table-borderless table-striped js-dataTable-responsive">
                 @csrf
-    @method('delete') 
+                @method('delete') 
                 @if(count($availables)>0)
                     <tr>
-                        <th>Course name</th>
-                        <th>Department</th>
-                        <th>School</th>
-                        <th>Intake</th>
-                        <th>Duration</th>
-                        <th colspan="2" class="text-center">Action</th>
+                        <th class="text-uppercase">Course name</th>
+                        <th class="text-uppercase">Department</th>
+                        <th class="text-uppercase" >School</th>
+                        <th class="text-uppercase">Duration</th>
                     </tr>
                     @foreach($availables as $course)
 
                         @foreach($course as $item)
                             <tr>
-                                <td> {{ $item->course_name }}</td>
-                                <td> {{ $item->department_id }}</td>
-                                <td> {{ $item->school_id }}</td>
-                                <td> {{ $item->$intake }}</td>
-                                <td> {{ $item->course_duration }}</td>
-                                {{-- <td nowrap=""> <a class="btn btn-sm btn-alt-secondary" href="{{ route('courses.viewOne', $item->id) }}">view </a> </td> --}}
-                                {{-- <td nowrap=""> <a class="btn btn-sm btn-alt-info" href="{{ route('courses.apply', $item->id) }}">edit </a> </td> --}}
-                                <td nowrap=""> <a class="btn btn-sm btn-alt-danger" href="{{ route('courses.destroyCoursesAvailable', $item->id) }}">delete </a> </td>
+                                <td class="text-uppercase"> {{ $item->course_name }}</td>
+                                <td class="text-uppercase"> {{ $item->department_id }}</td>
+                                <td class="text-uppercase" > {{ $item->school_id }}</td>
+                                <td class="text-uppercase"> {{ $item->course_duration }}</td>
                             </tr>
                         @endforeach
                     @endforeach

@@ -16,15 +16,15 @@ Route::prefix('courses')->middleware(['admin'])->group(function() {
     Route::get('/search', 'CoursesController@search')->name('courses.search');
     Route::get('/autocomplete', 'CoursesController@autocomplete')->name('courses.autocomplete');
 
+    Route::get('/archived', 'CoursesController@archived')->name('courses.archived');
+    Route::get('/applications', 'CoursesController@applications')->name('courses.applications');
     Route::get('/offer', 'CoursesController@offer')->name('courses.offer');
     Route::get('/profile', 'CoursesController@profile')->name('courses.profile');
-    Route::get('/review', 'CoursesController@review')->name('courses.review');
-
     Route::get('/destroyCoursesAvailable/{id}', 'CoursesController@destroyCoursesAvailable')->name('courses.destroyCoursesAvailable');
-
+    Route::post('/acceptedMail', 'CoursesController@acceptedMail')->name('courses.acceptedMail');
 
     Route::get('/', 'CoursesController@index')->name('courses.index');
-    Route::get('approveIndex', 'CoursesController@approveIndex')->name('courses.approveIndex');
+    Route::get('/approveIndex', 'CoursesController@approveIndex')->name('courses.approveIndex');
     Route::get('/addIntake', 'CoursesController@addIntake')->name('courses.addIntake');
     Route::post('/storeIntake', 'CoursesController@storeIntake')->name('courses.storeIntake');
     Route::get('/showIntake', 'CoursesController@showIntake')->name('courses.showIntake');
@@ -55,6 +55,7 @@ Route::prefix('courses')->middleware(['admin'])->group(function() {
 
 
     Route::get('/addCourse', 'CoursesController@addCourse')->name('courses.addCourse');
+    Route::get('/addCourse/fetch', 'CoursesController@fetch')->name('courses.fetch');
     Route::post('/storeCourse', 'CoursesController@storeCourse')->name('courses.storeCourse');
     Route::get('/showCourse', 'CoursesController@showCourse')->name('courses.showCourse');
     Route::get('/editCourse/{id}', 'CoursesController@editCourse')->name('courses.editCourse');

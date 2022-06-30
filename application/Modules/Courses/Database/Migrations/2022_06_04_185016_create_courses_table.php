@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('school_id');
             $table->string('level');
             $table->string('fee');
+            $table->string('department_id');
+            $table->string('course_duration');
+            $table->string('course_code')->unique();
             $table->string('subject1');
             $table->string('subject2');
             $table->string('subject3');
             $table->string('subject4');
-            $table->string('department_id');
-            $table->string('course_code')->unique();
-            $table->string('course_duration');
             $table->longText('course_requirements');
             $table->timestamps();
             $table->softDeletes();

@@ -33,7 +33,7 @@
                  
                 <div class="col-lg-8 space-y-0">
                    <form class="row row-cols-lg-auto g-3 align-items-center" action="{{ route('courses.storeCourse') }}" method="POST">
-                    @csrf 
+                    {{ @csrf_field()  }}
                                    
                     <div class="col-12 col-xl-12">
                       <select name="school" id="school" value="{{ old('school') }}" class="form-control form-control-alt text-uppercase">

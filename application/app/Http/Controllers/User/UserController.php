@@ -66,7 +66,7 @@ class UserController extends Controller
 
        if (Auth::guard('user')->user()->role_id === 1){
         $courses = AvailableCourse::count();
-        $applications = Application::count();
+        $applications = Application::where('registrar_status',0)->count();
            if (!Auth::guard('user')->check()){
                abort(403);
            } else{

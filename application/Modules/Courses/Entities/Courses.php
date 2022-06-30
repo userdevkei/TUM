@@ -9,10 +9,6 @@ class Courses extends Model
 {
     use HasFactory;
 
-//    protected $fillable = ['campus_id'];
-//    protected $guared = [];
-//
-//    protected $table = 'courses';
     protected $fillable = ['campus_id'];
     protected $guared = [];
 
@@ -23,7 +19,4 @@ class Courses extends Model
         return \Modules\Courses\Database\factories\CoursesFactory::new();
     }
 
-    public function intakes(){
-        $this->belongsTo(Intake::class, 'id');
-    }
 }

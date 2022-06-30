@@ -71,7 +71,7 @@
                             <input type = "text" class = "form-control form-control-alt text-uppercase" id = "course_duration" value = "{{$data->course_duration}}"name="course_duration" placeholder="Course Duration">
                         </div>
                         <div class="col-12 col-xl-12">
-                            <textarea value = "{{$data->course_requirements}}" class = "form-control form-control-alt text-uppercase" id="course_requirements" name="course_requirements" placeholder="Course Requirements"></textarea>
+                            <textarea value = "{{$data->course_requirements}}" class = "form-control form-control-alt text-uppercase" id="course_requirements" name="course_requirements" placeholder="Course Requirements">{{$data->course_requirements}}</textarea>
                         </div>
                     </div>
                     <div class="col-lg-4 space-y-2">
@@ -82,21 +82,11 @@
                             <input type="text"value = "{{$data->subject2}}"class="form-control form-control-alt text-uppercase" id="subject2" name="subject2" placeholder="subject2">
                         </div>
                         <div class="col-12 col-xl-12">
-                            <select value = "{{$data->subject3}}" name="subject3" id="subject3"class="form-control form-control-alt form-select text-uppercase">
-                                <option value="" selected disabled>Choose One Humanity</option>
-                                <option value="Geo">Geo</option>
-                                <option value="His">His</option>
-                                <option value="CRE">CRE</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-xl-12">
-                            <select value = "{{$data->subject4}}" name="subject4" id="subject4"class="form-control form-select form-control-alt text-uppercase">
-                                <option value="" selected disabled>Choose One Science</option>
-                                <option value="Phy">Phy</option>
-                                <option value="Chem">Chem</option>
-                                <option value="Bio">Bio</option>
-                            </select>
-                        </div>
+                            <input type="text" value="{{$data->subject3 }}"class="form-control form-control-alt text-uppercase" id="subject3" name="subject3" placeholder="One Humanity">
+                          </div><br>
+                          <div class="col-12 col-xl-12">
+                            <input type="text" value="{{ $data->subject4}}"class="form-control form-control-alt text-uppercase" id="subject4" name="subject4" placeholder="one science">
+                          </div><br>
                         <p class="p-2">
 
                             <b>KEY:</b>  <br>
